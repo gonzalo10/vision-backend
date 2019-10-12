@@ -26,5 +26,5 @@ echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
 eb status
 
 # Deploy application to the appropriate ElasticBeanstalk env
-eb deploy vision-app-backend-production -v
+eb deploy production -v
 rm ~/.aws/config
