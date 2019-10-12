@@ -1,23 +1,19 @@
-# Load the alpine base image
-FROM alpine:3.7
+FROM node:10
 
-# Install depedencies
-RUN apk update && apk add -U nodejs yarn
-RUN node --version
-RUN yarn --version
+# Create app directory
+WORKDIR /usr/src/app
 
-# Create the working directory
-RUN mkdir -p /var/www/api
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
-# Copy project files into the working directory
-COPY . /var/www/api/
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
 
-# Run npm install to download all the project dependencies
-RUN cd /var/www/api && yarn
+# Bundle app source
+COPY . .
 
-# Set the working directory to the created directory
-WORKDIR /var/www/api
-
-# Expose a port and start the server (you may need to change the name here to match your server file)
-EXPOSE 3000
-CMD ["node", "server.js"]
+EXPOSE 8080
+CMD [ "node", "server.js" ]
