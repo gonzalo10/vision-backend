@@ -17,17 +17,17 @@ module.exports = {
 				throw new Error('Unauthenticated!');
 			}
 			const size = 0.95;
-			function runScript() {
-				return spawnSync('python', [
-					'-u',
-					path.join(__dirname, '../../ML/Summary/script.py'),
-					'__main__',
-					decodeURI(text),
-					size,
-				]);
-			}
-			const subprocess = runScript();
-			const result = subprocess.output[1].toString();
+			// function runScript() {
+			// 	return spawnSync('python', [
+			// 		'-u',
+			// 		path.join(__dirname, '../../ML/Summary/script.py'),
+			// 		'__main__',
+			// 		decodeURI(text),
+			// 		size,
+			// 	]);
+			// }
+			// const subprocess = runScript();
+			// const result = subprocess.output[1].toString();
 			return { text: encodeURI(text), summary: encodeURI(result) };
 		} catch (err) {
 			console.log(err);
