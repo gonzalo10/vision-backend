@@ -4,7 +4,7 @@ branch-defaults:
   # (optional) Other branch-specific settings
   # (e.g. if you want a staging environment)
   master:
-    environment: master
+    environment: production
 global:
   application_name: vision-app-backend
   default_ec2_keyname: null
