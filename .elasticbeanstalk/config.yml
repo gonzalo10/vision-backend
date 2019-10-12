@@ -1,8 +1,4 @@
 branch-defaults:
-  production:
-    environment: production
-  # (optional) Other branch-specific settings
-  # (e.g. if you want a staging environment)
   master:
     environment: production
 global:
