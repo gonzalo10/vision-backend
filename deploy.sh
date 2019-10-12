@@ -5,7 +5,7 @@ PRODUCTION_BRANCH="master"
 
 # Determine the environment to deploy to based on which branch this commit is on
 NODE_ENV=''
-elif [[ $TRAVIS_BRANCH == $PRODUCTION_BRANCH ]]; then
+if [[ $TRAVIS_BRANCH == $PRODUCTION_BRANCH ]]; then
   NODE_ENV="production"
 else
   # Don't want to deploy if it's not one of the above branches
